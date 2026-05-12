@@ -1,23 +1,29 @@
 class Solution {
     public int[] separateDigits(int[] nums) {
-        
         ArrayList<Integer> ans = new ArrayList<>();
-        
-        for(int i=0;i<nums.length;i++){
-            
-            String s = Integer.toString(nums[i]);
-            
-            for(char c : s.toCharArray()){
-                
-                int n = (c - '0');
-                ans.add(n);
+        ArrayList<Integer> no = new ArrayList<>();
+
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i]<=9) 
+                ans.add(nums[i]);
+
+            else{
+                while(nums[i]>0){
+                    no.add(nums[i] % 10);
+                    nums[i] /= 10;
+                }
+                Collections.reverse(no);
+                ans.addAll(no);
+                no.clear();
             }
         }
-        
-        int[] arr = new int[ans.size()];
-        for(int i =0;i<ans.size();i++)
-            arr[i] = ans.get(i);
-        
-        return arr;
+
+        int[] ans2 = new int[ans.size()];
+
+        for(int i = 0;i<ans.size();i++){
+            ans2[i] = ans.get(i);
+        }
+
+        return ans2;
     }
 }
