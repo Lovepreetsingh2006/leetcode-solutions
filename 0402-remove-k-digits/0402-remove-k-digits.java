@@ -1,34 +1,33 @@
 class Solution {
     public String removeKdigits(String num, int k) {
+        
+        if(num.length() == k) return "0";
 
-        Deque<Character> st = new ArrayDeque<>();
-        
-        if((num.length() == k)) return "0";
-        
+        Deque<Character> stk = new ArrayDeque<>();
+
         for (char c : num.toCharArray()) {
-            
-             if(st.size() == 1 && st.peek()=='0'){
-                st.pop();
+
+            if(stk.size() == 1 && stk.peek() == '0') {
+                stk.pop();
                 k--;
             }
-            while(!st.isEmpty() && k>0 && st.peek()>c){
-                st.pop();
+            while(!stk.isEmpty() && k > 0 && stk.peek() > c){
+                stk.pop();
                 k--;
             }
-            if(st.isEmpty() && c == '0') continue;
-            st.push(c);
-            
+            if(stk.isEmpty() && c =='0') continue;
+
+            stk.push(c);
         }
-        
-        while(!st.isEmpty() && k > 0){
-            st.pop();
+
+        while(!stk.isEmpty() && k > 0){
+            stk.pop();
             k--;
         }
-        
-        char[] arr = new char[st.size()];
-        
-        int i = st.size() - 1;
-        for (char c : st) {
+
+        char[] arr = new char[stk.size()];
+        int i = stk.size() - 1;
+        for (char c : stk) {
             arr[i] = c;
             i--;
         }
