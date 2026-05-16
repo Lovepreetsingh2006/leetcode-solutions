@@ -7,8 +7,10 @@ class Solution {
 
         for (char c : num.toCharArray()) {
 
-            if(stk.size() == 1 && stk.peek() == '0') stk.pop();
-                
+            if(stk.size() == 1 && stk.peek() == '0') {
+                stk.pop();
+                k--;
+            }
             while(!stk.isEmpty() && k > 0 && stk.peek() > c){
                 stk.pop();
                 k--;
