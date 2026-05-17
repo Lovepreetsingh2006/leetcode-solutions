@@ -4,7 +4,9 @@ class Solution {
         int i = 0;
 
         while(i < nums.length){
-             int corindex = nums[i] - 1;
+
+            int corindex = nums[i] - 1;
+
             if(nums[i] <= nums.length && nums[i] > 0 && (nums[i] - 1) != i && nums[i] != nums[corindex]){
                 
                 int temp = nums[corindex];
