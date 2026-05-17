@@ -21,6 +21,7 @@ class Solution {
             }
             i++;
         }
+        
         int ans = i+1;
         return ans;
     }
