@@ -1,23 +1,19 @@
 class Solution {
     public int maxDifference(String s) {
         
-        HashMap<Character, Integer> map = new HashMap<>();
+       int arr[] = new int[26];
 
         for(char c : s.toCharArray()){
-            if(!map.containsKey(c)){
-                map.put(c , 1);
-            }
-            else{
-                map.put(c , map.get(c)+1);
-            }
+            
+            arr[c-'a'] +=1;
         }
 
         int max = 0;
         int min = Integer.MAX_VALUE;
 
-        for(var e: map.entrySet()){
-            if(e.getValue() > max && e.getValue() % 2 != 0) max = e.getValue();
-            if(e.getValue() < min && e.getValue() % 2 == 0) min = e.getValue();
+        for(int i: arr){
+            if(i > max && i % 2 != 0) max = i;
+            if(i < min && i % 2 == 0 && i != 0) min = i;
         }
         return (max-min);
     }
