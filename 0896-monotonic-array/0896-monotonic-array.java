@@ -14,6 +14,7 @@ class Solution {
             }
             if(inc == true && dec == true)
             return false;
+            
         }
         return true;
     }
