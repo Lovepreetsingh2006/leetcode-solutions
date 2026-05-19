@@ -1,21 +1,26 @@
 class Solution {
+
+    boolean checkvow(char a) {
+        if (a != 'a' && a != 'e' && a != 'i' && a != 'o' && a != 'u' &&
+                a != 'A' && a != 'E' && a != 'I' && a != 'O' && a != 'U') {
+            return true;
+        } else
+            return false;
+    }
+
     public String reverseVowels(String s) {
-        
+
         char[] arr = s.toCharArray();
         int i = 0;
         int j = arr.length - 1;
 
-        while(j > i){
+        while (j > i) {
 
-            if(arr[i] != 'a'  && arr[i] != 'e'  && arr[i] != 'i'  && arr[i] != 'o'  && arr[i] != 'u' &&
-            arr[i] != 'A'  && arr[i] != 'E'  && arr[i] != 'I'  && arr[i] != 'O'  && arr[i] != 'U'){
+            if (checkvow(arr[i])) {
                 i++;
-            }
-            else if(arr[j] != 'a'  && arr[j] != 'e'  && arr[j] != 'i'  && arr[j] != 'o'  && arr[j] != 'u' &&
-            arr[j] != 'A'  && arr[j] != 'E'  && arr[j] != 'I'  && arr[j] != 'O'  &&arr[j] != 'U'){
+            } else if (checkvow(arr[j])) {
                 j--;
-            }
-            else{
+            } else {
                 char temp = arr[i];
                 arr[i++] = arr[j];
                 arr[j--] = temp;
