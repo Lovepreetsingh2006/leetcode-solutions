@@ -10,10 +10,9 @@ class Solution {
         }
 
         for(int i =0;i<sandwiches.length;i++){
-            if(sandwiches[i] == 1 && onestu == 0) break;
-            if(sandwiches[i] == 0 && zerstu == 0) break;
             if(sandwiches[i] == 1 && onestu > 0)onestu--;
-            if(sandwiches[i] == 0 && zerstu > 0)zerstu--;
+            else if(sandwiches[i] == 0 && zerstu > 0)zerstu--;
+            else break;
         }
         
         int ans = onestu + zerstu;
