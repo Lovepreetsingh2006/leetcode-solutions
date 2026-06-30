@@ -1,15 +1,16 @@
 class Solution {
 
-    String check(String s){
+    String check(String s) {
         Deque<Character> stack = new ArrayDeque<>();
-        for(char a: s.toCharArray()){
+        for (char a : s.toCharArray()) {
 
-            if(stack.isEmpty() && a=='#') continue;
+            if (stack.isEmpty() && a == '#')
+                continue;
 
-            if(!stack.isEmpty() && a=='#'){
+            if (!stack.isEmpty() && a == '#') {
                 stack.pop();
-            }
-            else stack.push(a);
+            } else
+                stack.push(a);
         }
         StringBuilder ans = new StringBuilder();
 
